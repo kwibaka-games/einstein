@@ -134,7 +134,7 @@ export function render(container, { view, onAction }) {
     const canMove = myTurn && moveTargets.has(index);
     const cell = el(
       'button',
-      `einstein-cell${(Math.floor(index / view.size) + index) % 2 ? ' dark' : ''}${value ? ` has-${value}` : ''}${required ? ' required' : ''}${view.selected === index ? ' selected' : ''}${canMove ? ' move-target' : ''}${view.lastMove?.to === index ? ' last' : ''}`,
+      `einstein-cell${(Math.floor(index / view.size) + (index % view.size)) % 2 ? ' dark' : ''}${value ? ` has-${value}` : ''}${required ? ' required' : ''}${view.selected === index ? ' selected' : ''}${canMove ? ' move-target' : ''}${view.lastMove?.to === index ? ' last' : ''}`,
     );
     cell.type = 'button';
     cell.setAttribute('role', 'gridcell');
