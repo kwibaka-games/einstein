@@ -69,7 +69,7 @@ export function initialBoard(pieces: Piece[]): EinsteinCell[] {
 export function legalTargets(index: number, color: EinsteinColor): number[] {
   const row = Math.floor(index / SIZE);
   const col = index % SIZE;
-  const steps = color === 'black'
+  const steps: readonly [number, number][] = color === 'black'
     ? [[0, 1], [1, 0], [1, 1]]
     : [[0, -1], [-1, 0], [-1, -1]];
   const result: number[] = [];
